@@ -83,42 +83,56 @@ validate_mode() {
 }
 
 set_status_leds() {
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X52 0x00
     if [[ ${HDD0} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA0 0x04
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB0 0x04
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X54 0x00
     if [[ ${HDD1} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA0 0x10
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB0 0x10
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X56 0x00
     if [[ ${NETWORK} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA0 0x40
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB0 0x40
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X58 0x00
     if [[ ${NVME0} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA1 0x01
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB1 0x01
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X5A 0x00
     if [[ ${NVME1} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA1 0x04
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB1 0x04
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X5C 0x00
     if [[ ${NVME2} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA1 0x10
     else
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XB1 0x10
     fi
 
+    # blinking off
+    sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0X5E 0x00
     if [[ ${NVME3} == "1" ]]; then
         sudo ${I2C_BINDIR}/usr/local/sbin/i2cset -y ${found_bus} 0x26 0XA1 0x40
     else
